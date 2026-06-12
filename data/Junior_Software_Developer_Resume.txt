@@ -1,0 +1,4 @@
+Name: Jordan Smith
+Skills: database, docker, sql, python, ai, java, ml
+Experience: 0
+Education: BTech

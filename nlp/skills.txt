@@ -1,0 +1,67 @@
+python-ml:1
+ml-ai:1
+cpp-dsa:1
+java-oop:1
+python-data analysis:2
+java-spring:2
+cpp-embedded:2
+ml-data analysis:1
+ai-data analysis:1
+oop-spring:1
+dsa-embedded:1
+communication-leadership:1
+leadership-negotiation:1
+negotiation-crm:1
+marketing-seo:1
+seo-analytics:1
+sql-database:1
+database-nosql:1
+aws-cloud:1
+docker-containerization:1
+machine learning-ml:1
+deep learning-ml:1
+nlp-ai:1
+tensorflow-ml:1
+pytorch-ml:1
+scikit-learn-ml:1
+spark-data analysis:1
+numpy-data analysis:1
+pandas-data analysis:1
+kubernetes-containerization:1
+product-management-business strategy:1
+ux-ui design:1
+graphic design-branding:1
+finance-accounting:1
+audit-risk management:1
+hr-recruitment:1
+customer support-service desk:1
+it support-network administration:1
+operations-logistics:1
+sales-account management:1
+content writing-copywriting:1
+digital marketing-social media:1
+project management-scrum:1
+python-django:1
+python-flask:1
+web development-javascript:1
+frontend-backend:2
+data engineering-big data:1
+cloud-devops:1
+devops-automation:1
+aws-cloud:1
+azure-cloud:1
+gcp-cloud:1
+data visualization-tableau:1
+data visualization-power bi:1
+computer vision-ai:1
+nlp-text processing:1
+mobile development-android:1
+mobile development-ios:1
+sales-business development:1
+digital marketing-content marketing:1
+seo-ppc:1
+hr-talent acquisition:1
+business strategy-strategy planning:2
+logistics-supply chain:1
+finance-budgeting:2
+risk management-compliance:1

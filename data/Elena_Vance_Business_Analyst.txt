@@ -1,0 +1,4 @@
+Name: Elena Vance
+Skills: sql, communication, ai, data analysis
+Experience: 6
+Education: BTech

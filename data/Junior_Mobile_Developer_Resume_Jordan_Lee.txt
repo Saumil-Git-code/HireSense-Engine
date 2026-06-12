@@ -1,0 +1,4 @@
+Name: Jordan Lee
+Skills: cloud, ai, java
+Experience: 0
+Education: BTech

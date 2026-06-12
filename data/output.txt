@@ -1,0 +1,7 @@
+Ranking of Candidates:
+Marcus Thorne (Marcus_Thorne_Sales_Manager.txt) Score: 20
+Elena Vance (Elena_Vance_Business_Analyst.txt) Score: 12
+Sarah Jenkins (Senior_Backend_Engineer_Resume_Sarah_Jenkins.txt) Score: 0
+Jordan Smith (Junior_Software_Developer_Resume.txt) Score: 0
+Jordan Lee (Junior_Mobile_Developer_Resume_Jordan_Lee.txt) Score: 0
+Alex Rivera (resume1.txt) Score: 0

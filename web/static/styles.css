@@ -1,0 +1,382 @@
+/* Modern Resume Analyzer Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%);
+    --secondary-gradient: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+    --success-gradient: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+    --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+    --card-bg: #ffffff;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+    --border-radius: 16px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #89c4ff 0%, #e6f2ff 100%);
+    min-height: 100vh;
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Form Styles */
+.upload-form {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 3rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.form-group label i {
+    margin-right: 0.5rem;
+    color: #0ea5e9;
+}
+
+.form-group input[type="file"],
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: #f8fafc;
+    font-family: inherit;
+}
+
+.form-group input[type="file"]:focus,
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+    background: white;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.analyze-btn {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+}
+
+.analyze-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 58, 95, 0.4);
+}
+
+.analyze-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Results Section */
+.results-section {
+    margin-top: 2rem;
+}
+
+.results-section h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.results-section h2 i {
+    margin-right: 0.5rem;
+}
+
+/* Rankings Grid */
+.rankings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Candidate Cards */
+.candidate-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.candidate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.candidate-card.rank-1 {
+    border: 3px solid gold;
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+}
+
+.candidate-card.rank-2 {
+    border: 3px solid silver;
+    box-shadow: 0 15px 35px rgba(192, 192, 192, 0.3);
+}
+
+.candidate-card.rank-3 {
+    border: 3px solid #cd7f32;
+    box-shadow: 0 15px 35px rgba(205, 127, 50, 0.3);
+}
+
+/* Card Header */
+.card-header {
+    background: var(--primary-gradient);
+    padding: 1.5rem;
+    color: white;
+    position: relative;
+}
+
+.rank-badge {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: white;
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.score-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Card Content */
+.card-content {
+    padding: 1.5rem;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.info-row i {
+    margin-right: 0.75rem;
+    color: #0ea5e9;
+    width: 20px;
+    text-align: center;
+}
+
+.info-row strong {
+    color: var(--text-primary);
+}
+
+/* Skills Section */
+.skills-section {
+    margin-top: 1.5rem;
+}
+
+.skills-section i {
+    margin-right: 0.5rem;
+    color: #0ea5e9;
+}
+
+.skills-section strong {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: var(--success-gradient);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.no-skills {
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 0.5rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .rankings-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .upload-form {
+        padding: 1.5rem;
+    }
+    
+    .candidate-card {
+        margin: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .card-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .score {
+        font-size: 2rem;
+    }
+}
+
+/* Loading Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+tr:hover {
+    background: #dbeafe;
+}

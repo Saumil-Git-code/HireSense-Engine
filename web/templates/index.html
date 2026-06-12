@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HireSense Engine - Resume Analyzer</title>
+    <link rel="icon" type="image/x-icon" href="C:\Users\saumi\Downloads\resume.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-search"></i> HireSense Engine</h1>
+            <p>A Resume Analysis and Candidate Ranking Tool</p>
+        </header>
+
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <div class="form-group">
+                <label for="resumes"><i class="fas fa-file-upload"></i> Upload Resumes</label>
+                <input type="file" id="resumes" name="resumes" multiple required accept=".pdf">
+                <small>Upload PDF resume files (multiple files supported)</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="skills"><i class="fas fa-code"></i> Required Skills</label>
+                <input type="text" id="skills" name="skills" placeholder="e.g. python, machine learning, sql, react" required>
+                <small>Enter skills separated by commas</small>
+            </div>
+            
+            <button type="submit" class="analyze-btn">
+                <i class="fas fa-play"></i> Analyze Candidates
+            </button>
+        </form>
+
+        {% if rankings %}
+        <div class="results-section">
+            <h2><i class="fas fa-trophy"></i> Candidate Rankings</h2>
+            <div class="rankings-grid">
+                {% for candidate in rankings %}
+                <div class="candidate-card rank-{{ loop.index }}">
+                    <div class="card-header">
+                        <div class="rank-badge">#{{ loop.index }}</div>
+                        <h3>{{ candidate.name }}</h3>
+                        <div class="score-display">
+                            <span class="score">{{ candidate.score }}</span>
+                            <span class="score-label">Match Score</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="info-row">
+                            <i class="fas fa-briefcase"></i>
+                            <span><strong>Experience:</strong> {{ candidate.experience }} years</span>
+                        </div>
+                        
+                        <div class="info-row">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span><strong>Education:</strong> {{ candidate.education }}</span>
+                        </div>
+                        
+                        <div class="skills-section">
+                            <i class="fas fa-code"></i>
+                            <strong>Matched Skills:</strong>
+                            <div class="skills-list">
+                                {% for skill in candidate.skills %}
+                                <span class="skill-tag">{{ skill }}</span>
+                                {% endfor %}
+                                {% if not candidate.skills %}
+                                <span class="no-skills">No matching skills found</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Add loading state to form submission
+        document.querySelector('.upload-form').addEventListener('submit', function() {
+            const btn = document.querySelector('.analyze-btn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+            btn.disabled = true;
+        });
+    </script>
+</body>
+</html>
