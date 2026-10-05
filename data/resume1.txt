@@ -1,4 +1,7 @@
 Name: Alex Rivera
-Skills: scikit, pytorch, docker, sql, spark, numpy, kubernetes, aws, pandas, python, machine learning, ai, tensorflow, deep learning, java, ml
-Experience: 0
-Education: BTech
+Skills: ai, aws, c, computer vision, cpp, deep learning, docker, git, github, java, keras, kubernetes, llm, lstm, ml, numpy, pandas, python, pytorch, rag, scikit-learn, spark, sql, tensorflow
+Experience: 5.0
+Education: M.S. in Computer Science (Specialization in Machine Learning) | University of Texas at Austin | B.S. in Software Engineering | Georgia Institute of Technology
+SourceFile: resume1.pdf
+SemanticScore: 0.0
+SemanticMatches:

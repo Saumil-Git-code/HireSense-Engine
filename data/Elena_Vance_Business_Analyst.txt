@@ -1,4 +1,7 @@
 Name: Elena Vance
-Skills: sql, communication, ai, data analysis
-Experience: 6
-Education: BTech
+Skills: audit, communication, compliance, logistics, operations
+Experience: 8.0
+Education: B.A. in Business Administration 2017 | University of Washington
+SourceFile: Elena_Vance_Business_Analyst.pdf
+SemanticScore: 0.0
+SemanticMatches:

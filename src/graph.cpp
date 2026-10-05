@@ -1,46 +1,62 @@
-#include<iostream>
 #include "graph.h"
-#include <queue>
-#include<climits>
-using namespace std;
 
-void Graph::addEdge(string u, string v, int weight) {
+#include <climits>
+#include <functional>
+#include <queue>
+#include <unordered_map>
+
+void Graph::addEdge(const std::string& u, const std::string& v, int weight) {
+    if (weight < 0) {
+        return; // Dijkstra requires non-negative edge weights.
+    }
+
     adj[u].push_back({v, weight});
     adj[v].push_back({u, weight});
 }
 
-int Graph::shortestDistance(string start, string target) {
-
-    unordered_map<string, int> dist;
-
-    for(auto &node : adj) {
-        dist[node.first] = INT_MAX;
+int Graph::shortestDistance(const std::string& start, const std::string& target) const {
+    if (start == target) {
+        return 0;
     }
 
-    priority_queue<pair<int, string>, vector<pair<int, string>>, greater<pair<int, string>>> pq;
+    std::unordered_map<std::string, int> dist;
+    std::priority_queue<
+        std::pair<int, std::string>,
+        std::vector<std::pair<int, std::string>>,
+        std::greater<std::pair<int, std::string>>
+    > pq;
 
     dist[start] = 0;
     pq.push({0, start});
 
-    while(!pq.empty()) {
-        auto current = pq.top();
+    while (!pq.empty()) {
+        const auto [currentDistance, node] = pq.top();
         pq.pop();
 
-        int currDist = current.first;
-        string node = current.second;
+        auto known = dist.find(node);
+        if (known == dist.end() || currentDistance != known->second) {
+            continue;
+        }
 
-        if(node == target) return currDist;
+        if (node == target) {
+            return currentDistance;
+        }
 
-        for(auto &neighbor : adj[node]) {
-            string next = neighbor.first;
-            int weight = neighbor.second;
+        auto nodeIt = adj.find(node);
+        if (nodeIt == adj.end()) {
+            continue;
+        }
 
-            if(currDist + weight < dist[next]) {
-                dist[next] = currDist + weight;
-                pq.push({dist[next], next});
+        for (const auto& [next, weight] : nodeIt->second) {
+            const int newDistance = currentDistance + weight;
+            auto nextIt = dist.find(next);
+
+            if (nextIt == dist.end() || newDistance < nextIt->second) {
+                dist[next] = newDistance;
+                pq.push({newDistance, next});
             }
         }
     }
 
-    return INT_MAX;  // no path
+    return INT_MAX;
 }

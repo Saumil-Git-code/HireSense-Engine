@@ -1,0 +1,7 @@
+Name: Liam O'Connor
+Skills: recruitment
+Experience: 0.0
+Education: B.A. in Human Resource Management | University College Dublin | 2018
+SourceFile: Resume_Liam_OConnor_v2.pdf
+SemanticScore: 0.0
+SemanticMatches:

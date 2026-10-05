@@ -1,4 +1,7 @@
 Name: Jordan Smith
-Skills: database, docker, sql, python, ai, java, ml
-Experience: 0
-Education: BTech
+Skills: backend, css, docker, frontend, git, html, javascript, project management, python, typescript, ui design
+Experience: 0.0
+Education: B.S. in Software Engineering | State University Class of 2024 | GPA: 3.8/4.0 | Relevant Coursework: Data Structures & Algorithms, Database Management, Web | Architecture.
+SourceFile: Junior_Software_Developer_Resume.pdf
+SemanticScore: 0.0
+SemanticMatches:

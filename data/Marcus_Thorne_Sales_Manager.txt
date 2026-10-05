@@ -1,4 +1,8 @@
 Name: Marcus Thorne
-Skills: cloud, communication, marketing, negotiation, ai, crm, ml
-Experience: 10
-Education: BTech
+Skills: ai, sales
+Experience: 9.0
+Education: B.S. in Communications & Marketing 2016 | Colorado State University
+SourceFile: Marcus_Thorne_Sales_Manager.pdf
+SemanticScore: 0.0033716125921769524
+SemanticMatches:
+ml -> ai (0.4574)

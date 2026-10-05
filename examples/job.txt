@@ -1,2 +1,2 @@
 Skills: python, machine learning, nlp, pytorch
-MinimumExperience: 2
+MinimumExperience: 2.0

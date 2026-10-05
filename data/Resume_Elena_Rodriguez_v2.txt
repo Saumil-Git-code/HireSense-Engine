@@ -1,0 +1,7 @@
+Name: Elena Rodríguez
+Skills: aws, docker, javascript, typescript, ui design
+Experience: 0.0
+Education: B.S. in Computer Science | University of Texas at Austin | 2017
+SourceFile: Resume_Elena_Rodriguez_v2.pdf
+SemanticScore: 0.0
+SemanticMatches:

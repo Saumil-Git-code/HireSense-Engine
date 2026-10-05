@@ -1,0 +1,7 @@
+Name: Aisha Al-Farsi
+Skills: python
+Experience: 0.0
+Education: MBA in Finance | NYU Stern School of Business | 2020
+SourceFile: Resume_Aisha_Al-Farsi_v2.pdf
+SemanticScore: 0.0
+SemanticMatches:

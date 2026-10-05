@@ -1,4 +1,7 @@
 Name: Sarah Jenkins
-Skills: docker, sql, kubernetes, cloud, aws, python, ai, java
-Experience: 0
-Education: BTech
+Skills: aws, backend, django, docker, java, kubernetes, python, sql
+Experience: 7.0
+Education: M.S. in Computer Science | Georgia Institute of Technology | AWS Certified Solutions Architect – Professional
+SourceFile: Senior_Backend_Engineer_Resume_Sarah_Jenkins.pdf
+SemanticScore: 0.0
+SemanticMatches:

@@ -1,7 +1,151 @@
-Ranking of Candidates:
-Marcus Thorne (Marcus_Thorne_Sales_Manager.txt) Score: 20
-Elena Vance (Elena_Vance_Business_Analyst.txt) Score: 12
-Sarah Jenkins (Senior_Backend_Engineer_Resume_Sarah_Jenkins.txt) Score: 0
-Jordan Smith (Junior_Software_Developer_Resume.txt) Score: 0
-Jordan Lee (Junior_Mobile_Developer_Resume_Jordan_Lee.txt) Score: 0
-Alex Rivera (resume1.txt) Score: 0
+HireSense Candidate Ranking
+===========================
+
+Required skills: python, ml, nlp, pytorch
+Minimum experience: 2 years
+
+Scoring: skill evidence 85 points + experience 15 points when requested
+
+#1 Alex Rivera
+Score: 100/100
+Exact evidence: 64 points
+Semantic evidence: 0 points
+Graph evidence: 21 points
+Experience: 15/15
+Exact evidence: python, ml, pytorch
+Semantic evidence:
+  - none
+Graph evidence:
+  - nlp <- ai (distance 1)
+Education: M.S. in Computer Science (Specialization in Machine Learning) | University of Texas at Austin | B.S. in Software Engineering | Georgia Institute of Technology
+----------------------------------------
+#2 Sarah Jenkins
+Score: 47/100
+Exact evidence: 21 points
+Semantic evidence: 0 points
+Graph evidence: 11 points
+Experience: 15/15
+Exact evidence: python
+Semantic evidence:
+  - none
+Graph evidence:
+  - ml <- django (distance 2)
+Education: M.S. in Computer Science | Georgia Institute of Technology | AWS Certified Solutions Architect – Professional
+----------------------------------------
+#3 Kwame Osei
+Score: 43/100
+Exact evidence: 21 points
+Semantic evidence: 1 points
+Graph evidence: 21 points
+Experience: 0/15
+Exact evidence: python
+Semantic evidence:
+  - pytorch -> tensorflow (0.4864)
+Graph evidence:
+  - ml <- scikit-learn (distance 1)
+Education: M.S. in Applied Statistics | Georgia Institute of Technology | 2021
+----------------------------------------
+#4 Aisha Al-Farsi
+Score: 21/100
+Exact evidence: 21 points
+Semantic evidence: 0 points
+Graph evidence: 0 points
+Experience: 0/15
+Exact evidence: python
+Semantic evidence:
+  - none
+Graph evidence:
+  - none
+Education: MBA in Finance | NYU Stern School of Business | 2020
+----------------------------------------
+#5 Jordan Smith
+Score: 21/100
+Exact evidence: 21 points
+Semantic evidence: 0 points
+Graph evidence: 0 points
+Experience: 0/15
+Exact evidence: python
+Semantic evidence:
+  - none
+Graph evidence:
+  - none
+Education: B.S. in Software Engineering | State University Class of 2024 | GPA: 3.8/4.0 | Relevant Coursework: Data Structures & Algorithms, Database Management, Web | Architecture.
+----------------------------------------
+#6 Yuki Tanaka
+Score: 21/100
+Exact evidence: 21 points
+Semantic evidence: 0 points
+Graph evidence: 0 points
+Experience: 0/15
+Exact evidence: python
+Semantic evidence:
+  - none
+Graph evidence:
+  - none
+Education: M.S. in Aerospace Engineering | University of Tokyo | 2019
+----------------------------------------
+#7 Elena Vance
+Score: 15/100
+Exact evidence: 0 points
+Semantic evidence: 0 points
+Graph evidence: 0 points
+Experience: 15/15
+Exact evidence: 
+Semantic evidence:
+  - none
+Graph evidence:
+  - none
+Education: B.A. in Business Administration 2017 | University of Washington
+----------------------------------------
+#8 Jordan Lee
+Score: 15/100
+Exact evidence: 0 points
+Semantic evidence: 0 points
+Graph evidence: 0 points
+Experience: 15/15
+Exact evidence: 
+Semantic evidence:
+  - none
+Graph evidence:
+  - none
+Education: B.S. in Software Engineering | University of Illinois | Graduated May 2022
+----------------------------------------
+#9 Marcus Thorne
+Score: 15/100
+Exact evidence: 0 points
+Semantic evidence: 0 points
+Graph evidence: 0 points
+Experience: 15/15
+Exact evidence: 
+Semantic evidence:
+  - ml -> ai (0.4574)
+Graph evidence:
+  - none
+Education: B.S. in Communications & Marketing 2016 | Colorado State University
+----------------------------------------
+#10 Elena Rodríguez
+Score: 0/100
+Exact evidence: 0 points
+Semantic evidence: 0 points
+Graph evidence: 0 points
+Experience: 0/15
+Exact evidence: 
+Semantic evidence:
+  - none
+Graph evidence:
+  - none
+Education: B.S. in Computer Science | University of Texas at Austin | 2017
+----------------------------------------
+#11 Liam O'Connor
+Score: 0/100
+Exact evidence: 0 points
+Semantic evidence: 0 points
+Graph evidence: 0 points
+Experience: 0/15
+Exact evidence: 
+Semantic evidence:
+  - none
+Graph evidence:
+  - none
+Education: B.A. in Human Resource Management | University College Dublin | 2018
+----------------------------------------

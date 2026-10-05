@@ -1,23 +1,26 @@
 #ifndef ANALYZER_H
 #define ANALYZER_H
 
-#include <vector>
 #include <string>
 #include <unordered_set>
-#include "resume.h"
-#include "graph.h"
+#include <vector>
 
-using namespace std;
+#include "graph.h"
+#include "resume.h"
 
 class Analyzer {
 public:
-    vector<Resume> resumes;
-    unordered_set<string> jobSkills;
-    Graph skillGraph;
+    static constexpr double MAX_SKILL_POINTS = 85.0;
+    static constexpr double MAX_EXPERIENCE_POINTS = 15.0;
 
-    int calculateScore(Resume &r);
-    int longestCommonSubsequence(vector<string> seq1, vector<string> seq2);
-    void analyze(const string &outputDir);
+    std::vector<Resume> resumes;
+    std::vector<std::string> jobSkillList;
+    std::unordered_set<std::string> jobSkills;
+    Graph skillGraph;
+    double minimumExperience = 0.0;
+
+    int calculateScore(Resume& resume);
+    void analyze(const std::string& outputDir);
 };
 
 #endif

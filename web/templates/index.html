@@ -1,90 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>HireSense Engine - Resume Analyzer</title>
-    <link rel="icon" type="image/x-icon" href="C:\Users\saumi\Downloads\resume.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireSense Engine</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-search"></i> HireSense Engine</h1>
-            <p>A Resume Analysis and Candidate Ranking Tool</p>
-        </header>
+<div class="container">
+    <header>
+        <div class="eyebrow">HYBRID RESUME INTELLIGENCE</div>
+        <h1>HireSense Engine</h1>
+        <p>Transparent candidate ranking using exact skill evidence, transformer-based semantic evidence, and Dijkstra-based graph evidence.</p>
+    </header>
+
+    <section class="panel form-panel">
+        <div class="section-title">
+            <div>
+                <h2>Analyze candidates</h2>
+                <p>Upload resumes and define the requirements for the role.</p>
+            </div>
+            <div class="method-pill">Hybrid Scoring · 100 pts</div>
+        </div>
 
         <form method="POST" enctype="multipart/form-data" class="upload-form">
             <div class="form-group">
-                <label for="resumes"><i class="fas fa-file-upload"></i> Upload Resumes</label>
-                <input type="file" id="resumes" name="resumes" multiple required accept=".pdf">
-                <small>Upload PDF resume files (multiple files supported)</small>
+                <label for="resumes">Resume files</label>
+                <input type="file" id="resumes" name="resumes" multiple required accept=".pdf,.docx">
+                <small>PDF or DOCX · multiple files supported · 25 MB total upload limit</small>
             </div>
-            
-            <div class="form-group">
-                <label for="skills"><i class="fas fa-code"></i> Required Skills</label>
-                <input type="text" id="skills" name="skills" placeholder="e.g. python, machine learning, sql, react" required>
-                <small>Enter skills separated by commas</small>
+
+            <div class="form-row">
+                <div class="form-group form-grow">
+                    <label for="skills">Required skills</label>
+                    <textarea id="skills" name="skills" rows="4" placeholder="python, machine learning, nlp, pytorch" required></textarea>
+                    <small>Comma-separated skill requirements. Common aliases such as “C++”, “NLP”, “natural language processing”, “scikit learn” are normalized automatically.</small>
+                </div>
+
+                <div class="form-group experience-group">
+                    <label for="min_experience">Minimum experience</label>
+                    <input type="number" id="min_experience" name="min_experience" min="0" step="0.5" placeholder="Optional">
+                    <small>Experience is scored only when a minimum is supplied.</small>
+                </div>
             </div>
-            
-            <button type="submit" class="analyze-btn">
-                <i class="fas fa-play"></i> Analyze Candidates
-            </button>
+
+            <button type="submit" class="analyze-btn">Analyze candidates</button>
         </form>
 
-        {% if rankings %}
-        <div class="results-section">
-            <h2><i class="fas fa-trophy"></i> Candidate Rankings</h2>
-            <div class="rankings-grid">
-                {% for candidate in rankings %}
-                <div class="candidate-card rank-{{ loop.index }}">
-                    <div class="card-header">
-                        <div class="rank-badge">#{{ loop.index }}</div>
+        {% if error %}
+        <div class="error-box">{{ error }}</div>
+        {% endif %}
+    </section>
+
+    {% if rankings %}
+    <section class="results-section">
+        <div class="results-heading">
+            <div>
+                <div class="eyebrow">RESULTS</div>
+                <h2>Candidate ranking</h2>
+                <div class="requirements-line">
+                    <strong>Required skills:</strong>
+                    {% for skill in required_skills %}
+                        <span class="tag requirement">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+                {% if min_experience %}
+                    <p class="small-note">Minimum experience: {{ min_experience }} years</p>
+                {% endif %}
+                {% if unknown_skills %}
+                    <p class="warning-note"><strong>Unrecognized vocabulary:</strong> {{ unknown_skills|join(', ') }}. Exact and semantic matching can still process these skills; graph relatedness cannot unless the skill exists in the graph.</p>
+                {% endif %}
+            </div>
+            <div class="score-legend">
+                <span>Skill evidence · 85</span>
+                <span>Experience · 15</span>
+            </div>
+        </div>
+
+        <div class="rankings-list">
+            {% for candidate in rankings %}
+            <article class="candidate-card {% if loop.index <= 3 %}top-card{% endif %}">
+                <div class="card-top">
+                    <div class="rank">#{{ loop.index }}</div>
+                    <div class="candidate-title">
                         <h3>{{ candidate.name }}</h3>
-                        <div class="score-display">
-                            <span class="score">{{ candidate.score }}</span>
-                            <span class="score-label">Match Score</span>
-                        </div>
+                        <p>{{ "%.1f"|format(candidate.experience) }} years experience</p>
                     </div>
-                    
-                    <div class="card-content">
-                        <div class="info-row">
-                            <i class="fas fa-briefcase"></i>
-                            <span><strong>Experience:</strong> {{ candidate.experience }} years</span>
-                        </div>
-                        
-                        <div class="info-row">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span><strong>Education:</strong> {{ candidate.education }}</span>
-                        </div>
-                        
-                        <div class="skills-section">
-                            <i class="fas fa-code"></i>
-                            <strong>Matched Skills:</strong>
-                            <div class="skills-list">
-                                {% for skill in candidate.skills %}
-                                <span class="skill-tag">{{ skill }}</span>
-                                {% endfor %}
-                                {% if not candidate.skills %}
-                                <span class="no-skills">No matching skills found</span>
-                                {% endif %}
-                            </div>
+                    <div class="score-block">
+                        <span class="score-number">{{ candidate.score }}</span>
+                        <span>/ 100</span>
+                    </div>
+                </div>
+
+                <div class="score-bar"><div class="score-fill" data-score="{{ candidate.score }}"></div></div>
+
+                <div class="score-breakdown">
+                    <div class="breakdown-item">
+                        <span>Exact evidence</span>
+                        <strong>{{ candidate.exact_points }} pts</strong>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Semantic evidence</span>
+                        <strong>{{ candidate.semantic_points }} pts</strong>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Graph evidence</span>
+                        <strong>{{ candidate.graph_points }} pts</strong>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Experience</span>
+                        <strong>{{ candidate.experience_points }} pts</strong>
+                    </div>
+                </div>
+
+                <div class="details-grid">
+                    <div>
+                        <h4>Education</h4>
+                        <p>{{ candidate.education }}</p>
+                    </div>
+
+                    <div>
+                        <h4>Exact evidence</h4>
+                        <div class="tag-list">
+                            {% for skill in candidate.exact_matches %}
+                                <span class="tag exact">{{ skill }}</span>
+                            {% else %}
+                                <span class="muted">None</span>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-    </div>
 
-    <script>
-        // Add loading state to form submission
-        document.querySelector('.upload-form').addEventListener('submit', function() {
-            const btn = document.querySelector('.analyze-btn');
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
-            btn.disabled = true;
+                <div class="details-grid">
+                    <div>
+                        <h4>Detected skills</h4>
+                        <div class="tag-list">
+                            {% for skill in candidate.skills %}
+                                <span class="tag">{{ skill }}</span>
+                            {% else %}
+                                <span class="muted">None detected</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4>Semantic evidence</h4>
+                        <div class="semantic-list">
+                            {% for match in candidate.semantic_matches %}
+                                <div class="semantic-item">{{ match }}</div>
+                            {% else %}
+                                <span class="muted">No semantic match above confidence threshold.</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-grid">
+                    <div>
+                        <h4>Graph evidence (Dijkstra 1-to-1)</h4>
+                        <div class="semantic-list">
+                            {% for match in candidate.graph_matches %}
+                                <div class="semantic-item">{{ match }}</div>
+                            {% else %}
+                                <span class="muted">No graph relations utilized.</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4>Experience verification</h4>
+                        <p>{{ "%.1f"|format(candidate.experience) }} years verified from chronology & statements.</p>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</div>
+
+<script>
+    const form = document.querySelector('.upload-form');
+    if (form) {
+        form.addEventListener('submit', function () {
+            const button = document.querySelector('.analyze-btn');
+            button.textContent = 'Analyzing...';
+            button.disabled = true;
         });
-    </script>
+    }
+</script>
 </body>
 </html>

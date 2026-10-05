@@ -1,4 +1,7 @@
 Name: Jordan Lee
-Skills: cloud, ai, java
-Experience: 0
-Education: BTech
+Skills: cloud, flutter, git, javascript, react native, scrum, swift, ui design, ux
+Experience: 4.0
+Education: B.S. in Software Engineering | University of Illinois | Graduated May 2022
+SourceFile: Junior_Mobile_Developer_Resume_Jordan_Lee.pdf
+SemanticScore: 0.0
+SemanticMatches:

@@ -1,0 +1,8 @@
+Name: Kwame Osei
+Skills: python, sales, scikit-learn, spark, sql, tableau, tensorflow
+Experience: 0.0
+Education: M.S. in Applied Statistics | Georgia Institute of Technology | 2021
+SourceFile: Resume_Kwame_Osei_v2.pdf
+SemanticScore: 0.01655464280735362
+SemanticMatches:
+pytorch -> tensorflow (0.4864)

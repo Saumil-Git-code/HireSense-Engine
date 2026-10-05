@@ -1,0 +1,12 @@
+Rank	Name	Filename	Score	ExactPoints	SemanticPoints	GraphPoints	ExperiencePoints	ExactMatches	SemanticMatches	GraphMatches
+1	Alex Rivera	resume1.txt	100	64	0	21	15	python,ml,pytorch		nlp <- ai (distance 1)
+2	Sarah Jenkins	Senior_Backend_Engineer_Resume_Sarah_Jenkins.txt	47	21	0	11	15	python		ml <- django (distance 2)
+3	Kwame Osei	Resume_Kwame_Osei_v2.txt	43	21	1	21	0	python	pytorch -> tensorflow (0.4864)	ml <- scikit-learn (distance 1)
+4	Aisha Al-Farsi	Resume_Aisha_Al-Farsi_v2.txt	21	21	0	0	0	python		
+5	Jordan Smith	Junior_Software_Developer_Resume.txt	21	21	0	0	0	python		
+6	Yuki Tanaka	Resume_Yuki_Tanaka_v2.txt	21	21	0	0	0	python		
+7	Elena Vance	Elena_Vance_Business_Analyst.txt	15	0	0	0	15			
+8	Jordan Lee	Junior_Mobile_Developer_Resume_Jordan_Lee.txt	15	0	0	0	15			
+9	Marcus Thorne	Marcus_Thorne_Sales_Manager.txt	15	0	0	0	15		ml -> ai (0.4574)	
+10	Elena Rodríguez	Resume_Elena_Rodriguez_v2.txt	0	0	0	0	0			
+11	Liam O'Connor	Resume_Liam_OConnor_v2.txt	0	0	0	0	0			

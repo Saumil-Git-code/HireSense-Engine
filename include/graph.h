@@ -1,18 +1,17 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#include <unordered_map>
-#include <vector>
 #include <string>
-
-using namespace std;
+#include <unordered_map>
+#include <utility>
+#include <vector>
 
 class Graph {
 public:
-    unordered_map<string, vector<pair<string, int>>> adj;
+    std::unordered_map<std::string, std::vector<std::pair<std::string, int>>> adj;
 
-    void addEdge(string u, string v, int weight);
-    int shortestDistance(string start, string target);
+    void addEdge(const std::string& u, const std::string& v, int weight);
+    int shortestDistance(const std::string& start, const std::string& target) const;
 };
 
 #endif

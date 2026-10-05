@@ -1,0 +1,2 @@
+Skills: python, ml, nlp, pytorch
+MinimumExperience: 2.0

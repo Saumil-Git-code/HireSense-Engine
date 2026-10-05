@@ -1,0 +1,7 @@
+Name: Yuki Tanaka
+Skills: python
+Experience: 0.0
+Education: M.S. in Aerospace Engineering | University of Tokyo | 2019
+SourceFile: Resume_Yuki_Tanaka_v2.pdf
+SemanticScore: 0.0
+SemanticMatches:
