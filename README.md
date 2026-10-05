@@ -1,8 +1,8 @@
 # HireSense Engine
 
-**HireSense** is a grounded, explainable resume-job matching and candidate ranking engine. It bridges **deterministic lexical constraints**, **dense semantic representations (`all-MiniLM-L6-v2`)**, and **domain ontology graph reasoning** to make automated candidate evaluation transparent, faithful, and resistant to hallucination.
+**HireSense** is a grounded, explainable resume-job matching and candidate ranking engine. It bridges **deterministic lexical constraints**, **dense semantic representations (`all-MiniLM-L6-v2`)**, and **domain ontology graph reasoning** to make automated candidate evaluation transparent and faithful.
 
-Unlike monolithic generative LLMs—which can hallucinate qualifications, suffer from black-box unexplainability, and introduce uncontrolled biases—HireSense decomposes candidate evaluation into verifiable, auditable tiers of evidence.
+I built it to practice combining a classic algorithm (Dijkstra on a skill graph), a sentence-embedding model, and plain string matching in one pipeline, and to make the score explainable rather than a single opaque number.
 
 ---
 
@@ -171,6 +171,29 @@ HireSense addresses the core research challenges of **grounded reasoning, halluc
 - **Evaluation**: The test suite includes standard ranking metrics (Normalized Discounted Cumulative Gain — **NDCG@K**) for empirical benchmark comparisons.
 
 ---
+## Known limitations
+
+I would rather list these than hide them:
+
+- **No evaluation.** I have not compared the rankings with human judgment or with baselines such as TF-IDF or BM25, so I cannot claim it ranks better than keyword search.
+- **Small, hand-built vocabulary and graph.** 110 skills and 64 edges, created manually. Skills outside the vocabulary are only matched if typed exactly.
+- **Greedy matching.** Both the semantic and graph tiers assign skills greedily, so results can depend on the order of the required skills. It is not an optimal assignment.
+- **Hand-written acronym descriptions.** The expanded descriptions for ~26 acronyms were written by me, but their scope can be expanded in the future.
+- **Keyword extraction, not understanding.** Skills are detected by matching names in resume sections. Coursework titles count as skill evidence, and a skill mentioned in passing counts the same as one used extensively.
+- **Synthetic test data.** The sample resumes were generated, not real, and there are only a handful.
+- **Not for real hiring.** Automated resume screening can be unfair or wrong. This is a learning prototype.
+
+## Possible next steps
+
+- Build a small labeled set of resumes and measure NDCG against TF-IDF, embeddings-only, and this hybrid.
+- Reduce graph credit and make edges directional (specific → general).
+- Embed full resume sentences instead of single skill names.
+- Replace the hand-written vocabulary with a standard skill taxonomy.
+
+## AI assistance
+
+I developed this project with help from an LLM for code and documentation. I wrote the design, initial code, reviewed and tested the code, and I am responsible for its contents.
+
 
 ## License
 MIT License. Built for research and transparent decision-support exploration.
